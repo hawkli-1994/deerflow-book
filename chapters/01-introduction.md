@@ -42,7 +42,7 @@ Agent:    LangChain + LangGraph
 ### 1.4.1 适合的场景
 
 - **企业级 AI 应用开发**：需要可控的 Agent 执行环境
-- **长时任务自动化**：Research、Code、Creaetion 一体化
+- **长时任务自动化**：Research、Code、Creation 一体化
 - **多 Agent 协同**：复杂工作流需要子代理分工
 - **安全沙箱需求**：代码执行必须在隔离环境
 - **IM 渠道集成**：需要接入飞书/Slack/Telegram
