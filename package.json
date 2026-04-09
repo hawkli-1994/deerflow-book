@@ -1,0 +1,31 @@
+{
+  "name": "deerflow-book",
+  "version": "1.0.0",
+  "description": "《DeerFlow 二次开发：理论、架构与源码剖析》- 面向硬核开发者的技术深度解析",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hawkli-1994/deerflow-book.git"
+  },
+  "keywords": [
+    "deerflow",
+    "agent",
+    "langgraph",
+    "llm",
+    "opensource-book",
+    "vitepress"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hawkli-1994/deerflow-book/issues"
+  },
+  "homepage": "https://hawkli-1994.github.io/deerflow-book/",
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}

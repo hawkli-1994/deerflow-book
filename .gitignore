@@ -1,3 +1,30 @@
-analysis/
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+.vitepress/dist
+.vitepress/cache
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Misc
 AGENTS.md
 .claude/
+analysis/
