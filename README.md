@@ -2,9 +2,20 @@
 
 **面向硬核开发者的技术深度解析**
 
+[![在线阅读](https://img.shields.io/badge/📖%20在线阅读-DeerFlow%20二次开发-blue?style=for-the-badge)](https://hawkli-1994.github.io/deerflow-book/)
+[![GitHub](https://img.shields.io/badge/GitHub-仓库-black?style=for-the-badge&logo=github)](https://github.com/hawkli-1994/deerflow-book)
+
 > 本书围绕 DeerFlow 2.0，从理论到源码，系统讲解如何进行二次开发。
 > 
 > 所有代码示例均基于真实源码，确保与 DeerFlow 实现保持一致。
+
+---
+
+## 🚀 开始阅读
+
+| 📖 [在线阅读（推荐）](https://hawkli-1994.github.io/deerflow-book/) | 搜索、目录导航、代码高亮、响应式布局 |
+|:---|:---|
+| 📄 [GitHub 阅读](./chapters/01-introduction.md) | 适合直接浏览 Markdown 源码 |
 
 ---
 
