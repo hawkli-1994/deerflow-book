@@ -1,5 +1,11 @@
 # 第二章 · 核心概念与设计哲学
 
+
+> **本章目标**：
+> 1. 深入理解 DeerFlow 的「解耦」设计哲学
+> 2. 掌握 Skill、Sub-Agent、Sandbox、Memory 四大核心概念的区别与联系
+> 3. 了解 LangGraph 在 DeerFlow 中的编排角色
+
 > **本章目标**：
 > 1. 掌握 Skill、Tool、Agent、Sandbox、Memory 五大核心概念
 > 2. 理解 DeerFlow 的状态图工作流模型
@@ -244,3 +250,20 @@ DeerFlow 的设计哲学可以总结为：
 | **生产级** | IM 渠道、高可用部署 |
 
 理解这些核心概念，是后续源码剖析的基础。
+
+
+## 本章小结
+
+本章深入解析了 DeerFlow 的四大核心概念与设计哲学：
+
+1. **解耦与可扩展**：将「能力」（Skill）与「执行」（Sandbox）分离，Prompt 与工具解耦，确保每个组件可独立演进。
+2. **Skill ≠ Tool**：Skill 是复合能力（Prompt + 多工具），Tool 是单一操作。Skill 是面向业务的能力封装，Tool 是面向系统的原子操作。
+3. **Sub-Agent 的分而治之**：通过专业化 Agent 分解复杂任务，避免 Prompt 长度瓶颈和上下文稀释。
+4. **LangGraph 编排核心**：所有组件通过 LangGraph 的节点与边进行工作流编排，实现状态驱动的 Agent 协作。
+
+> **⚠️ 注意**：不要将 Sub-Agent 嵌套过深（建议 ≤ 3 层），否则会导致上下文膨胀和调试困难。
+
+---
+
+**下一步**：阅读第三章，了解 DeerFlow 的系统架构与模块职责边界。
+

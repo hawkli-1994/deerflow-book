@@ -1,5 +1,11 @@
 # 第五章 · Agent 核心：LangGraph 编排逻辑
 
+
+> **本章目标**：
+> 1. 深入理解 make_lead_agent 工厂函数的初始化流程
+> 2. 掌握 ThreadState 的字段定义与状态管理机制
+> 3. 了解 LangGraph 节点编排、中间件链与工具路由的实现细节
+
 > **本章目标**：
 > 1. 深入理解 Lead Agent 的 LangGraph 编排逻辑
 > 2. 掌握中间件链的设计模式与扩展方法
@@ -905,3 +911,20 @@ DeerFlow Agent 核心要点：
 - 扩展 ThreadState 添加自定义字段
 - 在中间件链中添加自定义中间件
 - 自定义工具集满足特定需求
+
+
+## 本章小结
+
+本章深入解析了 DeerFlow Agent 核心的实现细节：
+
+1. **make_lead_agent**：工厂函数完成模型选择、工具加载、Prompt 生成、中间件链组装四大初始化步骤。
+2. **ThreadState 管理**：TypedDict 定义的状态结构，支持 SandboxState、ThreadDataState 等扩展，通过 Annotated 实现状态归约。
+3. **LangGraph 编排**：节点（Node）定义执行单元，边（Edge）定义流转规则，条件边实现动态分支（如 should_continue）。
+4. **中间件链**：Middleware 在请求前/后执行，支持日志、限流、审计等横切关注点，通过 MiddlewareResult 控制流程。
+
+> **⚠️ 注意**：should_continue 返回值必须与节点名称精确匹配（区分大小写），否则会导致 LangGraph 运行时报错。
+
+---
+
+**下一步**：阅读第六章，掌握 Skill 与 Tool 的抽象层级与注册机制。
+

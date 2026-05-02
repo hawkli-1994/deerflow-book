@@ -1,5 +1,11 @@
 # 第六章 · Skills 与 Tools：能力扩展机制
 
+
+> **本章目标**：
+> 1. 掌握 Skill 与 Tool 的抽象层级与注册机制
+> 2. 理解内置 Skills（研究、搜索、摘要）的实现原理
+> 3. 了解 Community Tools 的插件化扩展方式
+
 > **本章目标**：
 > 1. 区分 Skill 与 Tool 的概念层次与职责边界
 > 2. 掌握 Skill 的加载、渐进式加载与安全扫描机制
@@ -1239,3 +1245,20 @@ DeerFlow 可通过自定义 Skills 实现：
 - 合规检查自动化
 - 财务报表分析
 - 代码安全扫描
+
+
+## 本章小结
+
+本章系统讲解了 DeerFlow 的 Skill 与 Tool 体系：
+
+1. **Skill 层级**：Skill 是复合能力（Prompt + Tools + 配置），Tool 是原子操作。Skill 面向业务语义，Tool 面向系统调用。
+2. **注册机制**：通过 @skill 装饰器或 YAML 定义注册，运行时通过 ToolRegistry 动态发现与加载。
+3. **内置 Skills**：研究型 Skill（递归摘要、深度研究、快速搜索）覆盖信息收集、分析、整理全流程。
+4. **Community Tools**：外部工具通过统一接口接入，支持同步/异步调用、批量执行、错误回退。
+
+> **💡 最佳实践**：为每个 Skill 编写清晰的 description——这不仅影响文档质量，更直接决定 LLM 在 Agent 编排时能否正确选择该 Skill。
+
+---
+
+**下一步**：阅读第七章，了解 Sub-Agent 的配置定义、执行流程与协作机制。
+

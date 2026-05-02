@@ -1,5 +1,11 @@
 # 第十一章 · MCP Server 集成
 
+
+> **本章目标**：
+> 1. 掌握 MCP（Model Context Protocol）的协议规范与集成方式
+> 2. 理解 MCP Server 在 DeerFlow 中的注册、发现与调用机制
+> 3. 了解常见 MCP Server（GitHub、Slack、PostgreSQL）的配置与使用
+
 > **本章目标**：
 > 1. 理解 MCP 协议架构与 DeerFlow 中的集成位置
 > 2. 掌握 MCP Server 配置、客户端实现与工具适配
@@ -1191,3 +1197,20 @@ class CorporateAPIServer:
 | **企业扩展** | 企业数据库、企业 API |
 
 MCP 是 DeerFlow 扩展能力的核心途径。通过完善的 OAuth 支持、缓存机制和错误处理，DeerFlow 可以稳定、高效地集成各类 MCP Server，实现与企业现有系统的无缝连接。
+
+
+## 本章小结
+
+本章深入解析了 MCP（Model Context Protocol）在 DeerFlow 中的集成与应用：
+
+1. **MCP 协议**：标准化接口连接 LLM 与外部工具/数据源，DeerFlow 通过 MCP Client 适配器实现原生支持。
+2. **注册发现**：MCP Server 通过 extensions_config.json 配置，运行时自动发现工具列表与参数模式。
+3. **错误处理**：连接失败、调用超时、参数错误等异常通过重试机制与降级策略保证系统稳定性。
+4. **常见 Server**：GitHub（代码管理）、Slack（消息通知）、PostgreSQL（数据查询）等企业级工具的标准化接入。
+
+> **💡 最佳实践**：为 MCP Server 配置 tool_name_prefix=True 防止工具名冲突，尤其在同时使用多个 MCP Server 时。
+
+---
+
+**下一步**：阅读第十二章，学习自定义 Skill 的开发流程与多模态实战案例。
+

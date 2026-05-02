@@ -1,5 +1,11 @@
 # 第三章 · 架构总览
 
+
+> **本章目标**：
+> 1. 掌握 DeerFlow 的分层架构（Client → Nginx → Gateway → LangGraph）
+> 2. 理解 Gateway API 与 LangGraph Server 的职责边界
+> 3. 了解 ThreadState 的状态流转与 AgentState 扩展机制
+
 > **本章目标**：
 > 1. 掌握 DeerFlow 的分层系统架构与各层职责
 > 2. 理解 ThreadState 与 AgentState 的状态流转
@@ -435,3 +441,20 @@ DeerFlow 的架构设计体现了以下原则：
 | **安全隔离** | Sandbox 多层架构 |
 
 理解这些架构设计，是后续深入源码的前提。
+
+
+## 本章小结
+
+本章梳理了 DeerFlow 的系统架构与模块交互：
+
+1. **分层网关**：Nginx (2026) → Gateway API (8001) / LangGraph Server (2024) / Frontend (3000)，统一入口、职责分离。
+2. **Gateway API**：FastAPI 应用，负责非 Agent 操作（认证、模型列表、租户管理），与 LangGraph Server 解耦。
+3. **LangGraph Server**：核心 Agent 编排服务，处理对话流、工具调用、状态管理，通过 ThreadState 维护会话上下文。
+4. **ThreadState 扩展**：在 LangGraph AgentState 基础上扩展了 sandbox、artifacts、thread_data 等企业级字段。
+
+> **🏢 企业级建议**：生产环境中建议为 Gateway API 和 LangGraph Server 配置独立的负载均衡与健康检查。
+
+---
+
+**下一步**：阅读第四章，熟悉 DeerFlow 的 monorepo 目录结构与项目组织方式。
+

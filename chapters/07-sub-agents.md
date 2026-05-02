@@ -1,5 +1,11 @@
 # 第七章 · Sub-Agent 子代理体系
 
+
+> **本章目标**：
+> 1. 掌握 Sub-Agent 的配置定义与类型体系
+> 2. 理解 SubagentExecutor 的执行流程与状态管理
+> 3. 了解 Sub-Agent 的取消机制、并发控制与超时策略
+
 > **本章目标**：
 > 1. 理解 Sub-Agent 的设计哲学与执行模型
 > 2. 掌握 Agent 调用机制与结果聚合策略
@@ -956,3 +962,20 @@ DeerFlow 的 Agent Teams 可以在此基础上扩展：
 - 实现项目级记忆共享
 - 添加人工审批节点
 - 完善合规审计能力
+
+
+## 本章小结
+
+本章深入解析了 Sub-Agent 子代理体系的设计与实现：
+
+1. **SubagentConfig**：通过 dataclass 定义配置，支持 tools/disallowed_tools 黑白名单、model 继承、max_turns 与 timeout 限制。
+2. **执行流程**：SubagentExecutor 负责生命周期管理（初始化 → 执行 → 状态跟踪 → 清理），通过 astream() 实现实时消息捕获。
+3. **协作机制**：Sub-Agent 支持串行、并行、混合模式，通过 TeamContext 实现信息共享与上下文隔离。
+4. **取消与超时**：Cooperative Cancellation 通过 cancel_event 实现优雅终止，timeout_seconds 防止无限阻塞。
+
+> **🏢 企业级建议**：生产环境中务必设置 disallowed_tools=["task"] 防止 Sub-Agent 嵌套调用导致资源耗尽。
+
+---
+
+**下一步**：阅读第八章，掌握 Sandbox 的安全隔离与执行环境设计。
+

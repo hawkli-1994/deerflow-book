@@ -1,131 +1,152 @@
-# 附录 D · 术语表
+# 附录 D · 术语表（Glossary）
 
-> 本术语表汇总 DeerFlow 文档中的核心概念与缩写，按字母顺序排列，方便快速查阅。
+本术语表汇总了 DeerFlow 文档中出现的核心术语，按字母顺序排列。每个条目包含：英文原名、中文释义、相关章节。
 
 ---
 
 ## A
 
-**Agent（代理）**
-：具备感知、决策和执行能力的 AI 实体。DeerFlow 中 Agent 分为 Lead Agent（主代理）和 Sub-Agent（子代理），通过 LangGraph 的状态图进行编排。
-> 相关章节：第 2 章、第 5 章、第 7 章
-
----
+### Agent
+- **英文原名**：Agent
+- **释义**：具备自主决策能力的 AI 实体，能够接收输入、调用工具、生成输出并维持状态。DeerFlow 的 Agent 基于 LangGraph 编排，支持多轮对话与工具链执行。
+- **相关章节**：第五章（Agent 核心）、第七章（Sub-Agent）
 
 ## C
 
-**Checkpoint（检查点）**
-：LangGraph 提供的持久化机制，用于保存和恢复 Agent 执行状态。DeerFlow 利用 checkpoint 实现长时任务的断点续传和错误恢复。
-> 相关章节：第 2 章、第 9 章
+### Checkpoint
+- **英文原名**：Checkpoint
+- **释义**：在 Agent 执行流程的关键节点保存的完整状态快照。支持审批拒绝后的断点恢复与重试，确保任务不丢失。
+- **相关章节**：第十三章（Human-in-the-Loop）
 
-**Context（上下文）**
-：LLM 在单次推理中能够接收的全部输入信息，包括系统提示、用户消息、工具结果和历史记录。DeerFlow 通过 Context Engineering 技术对上下文进行分层管理。
-> 相关章节：第 10 章
-
----
+### Context Engineering
+- **英文原名**：Context Engineering
+- **释义**：上下文工程，指对 Agent 推理上下文进行管理的技术集合，包括上下文注入、过滤、压缩与 Token 预算管理。
+- **相关章节**：第十章（Context Engineering）
 
 ## E
 
-**Ed25519**
-：一种现代椭圆曲线数字签名算法，具有速度快、密钥短、安全性高的特点。DeerFlow 在审计日志签名和 MCP 认证中可选使用 Ed25519。
-> 相关章节：第 11 章、第 14 章
+### Edge
+- **英文原名**：Edge
+- **释义**：LangGraph 工作流中的「边」，定义节点之间的流转规则。条件边（Conditional Edge）支持基于状态动态选择下一个节点。
+- **相关章节**：第五章（Agent 核心）
 
-**Edge（边）**
-：LangGraph 状态图中的连接元素，定义了状态节点之间的流转方向。Edge 可以是固定的（`add_edge`）或条件路由的（`add_conditional_edges`）。
-> 相关章节：第 2 章、第 5 章
+## H
 
----
-
-## G
-
-**Graph（图）**
-：LangGraph 中的核心抽象，由节点（Node）和边（Edge）组成的有向图，用于描述 Agent 的执行流程和状态转换。
-> 相关章节：第 2 章、第 5 章
-
----
-
-## L
-
-**LLM（大语言模型）**
-：Large Language Model 的缩写，DeerFlow 支持多种 LLM 后端（OpenAI、Claude、Gemini 等），通过统一接口进行调用和切换。
-> 相关章节：第 1 章、第 5 章
-
----
+### Human-in-the-Loop (HITL)
+- **英文原名**：Human-in-the-Loop
+- **释义**：人在回路，指在 Agent 执行流程中插入人工干预点的设计模式，包括事前审批、事中干预与事后审查。
+- **相关章节**：第十三章（Human-in-the-Loop）
 
 ## M
 
-**MCP（Model Context Protocol）**
-：由 Anthropic 推出的开放协议，用于标准化 AI 模型与外部工具、数据源的连接。DeerFlow 原生支持 MCP Server 集成。
-> 相关章节：第 11 章
+### MCP (Model Context Protocol)
+- **英文原名**：Model Context Protocol
+- **释义**：模型上下文协议，由 Anthropic 提出的开放标准，用于标准化 AI 模型与外部工具/数据源的连接方式。
+- **相关章节**：第十一章（MCP Server）
 
-**Memory（记忆）**
-：Agent 在跨会话中保留的信息，用于维持长期上下文连续性。DeerFlow 的记忆系统分为 Working Memory、Semantic Memory 和 Episodic Memory 三层。
-> 相关章节：第 2 章、第 9 章
+### Memory
+- **英文原名**：Memory
+- **释义**：记忆系统，DeerFlow 的三层记忆模型包括短期记忆（对话上下文）、长期记忆（向量数据库）与持久化记忆（外部知识库）。
+- **相关章节**：第九章（Memory）
 
-**Middleware（中间件）**
-：插入在 Agent 执行流程中的可扩展组件，用于实现安全检查、上下文压缩、审计日志等横切关注点。DeerFlow 内置 18 个中间件。
-> 相关章节：第 3 章、第 5 章
-
----
+### Middleware
+- **英文原名**：Middleware
+- **释义**：中间件，在 Agent 请求处理的前/后执行的横切逻辑，支持日志、限流、审计、审批等扩展功能。
+- **相关章节**：第五章（Agent 核心）、第十三章（Human-in-the-Loop）
 
 ## N
 
-**Node（节点）**
-：LangGraph 状态图中的执行单元，每个节点对应一个处理函数（如规划、执行、审查）。节点接收当前状态并返回更新后的状态。
-> 相关章节：第 2 章、第 5 章
-
----
-
-## P
-
-**pgvector**
-：PostgreSQL 的扩展插件，为数据库添加向量相似度搜索能力。DeerFlow 使用 pgvector 作为语义记忆的向量存储后端。
-> 相关章节：第 9 章
-
-**Prompt（提示词）**
-：发送给 LLM 的输入文本，包含系统指令、用户问题和上下文信息。DeerFlow 的 Skill 系统通过 SKILL.md 文件管理可复用的 Prompt 模板。
-> 相关章节：第 2 章、第 6 章、第 12 章
-
----
+### Node
+- **英文原名**：Node
+- **释义**：LangGraph 工作流中的「节点」，代表一个执行单元（如调用 LLM、执行工具、更新状态）。
+- **相关章节**：第五章（Agent 核心）
 
 ## S
 
-**Sandbox（沙箱）**
-：隔离的执行环境，用于安全运行 AI Agent 生成的代码。DeerFlow 支持 Local Sandbox、Docker Sandbox 和 K8s Provisioner 三种实现。
-> 相关章节：第 2 章、第 8 章
+### Sandbox
+- **英文原名**：Sandbox
+- **释义**：沙箱，Agent 代码执行的安全隔离环境。DeerFlow 支持本地沙箱（LocalSandbox）与 Docker 沙箱（DockerSandbox）两种模式。
+- **相关章节**：第八章（Sandbox）
 
-**SSE（Server-Sent Events）**
-：一种服务器向客户端单向推送实时数据的标准技术。DeerFlow 的 Gateway API 使用 SSE 向客户端流式传输 Agent 执行事件。
-> 相关章节：第 3 章、第 11 章
+### Skill
+- **英文原名**：Skill
+- **释义**：技能，DeerFlow 的基本能力单元。Skill 是复合能力封装，包含 Prompt、Tool 集合与执行配置，面向特定业务场景（如研究、搜索、摘要）。
+- **相关章节**：第二章（核心概念）、第六章（Skills & Tools）、第十二章（自定义 Skill）
 
-**Skill（技能）**
-：DeerFlow 中可复用的能力单元，包含 Prompt 模板、工具定义和实现代码。Skill 通过 SKILL.md 文件描述，支持动态加载和渐进式加载。
-> 相关章节：第 2 章、第 6 章、第 12 章
-
-**StateGraph（状态图）**
-：LangGraph 的核心抽象，一种特殊的有向图，其中每个节点接收并返回状态对象。DeerFlow 的 Agent 编排基于 StateGraph 实现。
-> 相关章节：第 2 章、第 5 章
-
-**Sub-Agent（子代理）**
-：由 Lead Agent 委派执行特定任务的子级 Agent，拥有独立的工具集和配置。Sub-Agent 通过协作机制实现复杂任务的分治处理。
-> 相关章节：第 2 章、第 7 章
-
----
+### Sub-Agent
+- **英文原名**：Sub-Agent
+- **释义**：子代理，DeerFlow 的协作单元。将复杂任务分解给多个专业化 Agent 执行，通过 SubagentConfig 进行配置与调度。
+- **相关章节**：第二章（核心概念）、第七章（Sub-Agent）
 
 ## T
 
-**Thread（线程/会话）**
-：DeerFlow 中的对话上下文容器，每个用户会话对应一个 Thread，包含消息历史、中间状态和记忆引用。Thread 通过 `thread_id` 唯一标识。
-> 相关章节：第 3 章、第 5 章
+### Thread
+- **英文原名**：Thread
+- **释义**：线程/会话，DeerFlow 中的一次完整对话实例。ThreadState 维护该会话的所有状态（消息、沙箱、记忆、产物等）。
+- **相关章节**：第三章（架构）、第五章（Agent 核心）
 
-**Tool（工具）**
-：Agent 可调用的外部能力接口，如代码执行、文件操作、网络请求等。Tool 是 Skill 的底层实现，一个 Skill 可以暴露多个 Tool。
-> 相关章节：第 2 章、第 6 章
+### Tool
+- **英文原名**：Tool
+- **释义**：工具，DeerFlow 的原子操作单元。Tool 执行单一功能（如搜索、计算、文件读写），被 Skill 或 Agent 直接调用。
+- **相关章节**：第二章（核心概念）、第六章（Skills & Tools）
 
 ---
 
-## W
+## 术语关系图
 
-**Workflow（工作流）**
-：由状态图编译而成的可执行对象，定义了 Agent 的完整处理流程。DeerFlow 通过 `workflow.compile()` 将 StateGraph 转换为可运行的工作流。
-> 相关章节：第 2 章、第 5 章
+```
+┌─────────────────────────────────────────────────────────────┐
+│                      DeerFlow 术语体系                      │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│   ┌──────────┐      ┌──────────┐      ┌──────────┐        │
+│   │  Skill   │──────│   Tool   │◄─────│ Sandbox  │        │
+│   │ (能力)   │      │ (原子)   │      │ (执行)   │        │
+│   └────┬─────┘      └──────────┘      └──────────┘        │
+│        │                                                   │
+│        ▼                                                   │
+│   ┌──────────┐      ┌──────────┐      ┌──────────┐        │
+│   │ Sub-Agent│◄─────│  Agent   │──────│  Memory  │        │
+│   │ (协作)   │      │ (核心)   │      │ (记忆)   │        │
+│   └──────────┘      └────┬─────┘      └──────────┘        │
+│                          │                                 │
+│                          ▼                                 │
+│                    ┌──────────┐                            │
+│                    │ LangGraph│                            │
+│                    │(编排核心)│                            │
+│                    └────┬─────┘                            │
+│                         │                                  │
+│        ┌────────────────┼────────────────┐                │
+│        ▼                ▼                ▼                │
+│   ┌─────────┐    ┌─────────┐    ┌─────────┐              │
+│   │  Node   │    │  Edge   │    │ Thread  │              │
+│   │ (节点)  │    │ (边)    │    │ (会话)  │              │
+│   └─────────┘    └─────────┘    └─────────┘              │
+│                                                             │
+│   ┌─────────────────────────────────────────────────────┐ │
+│   │  横切关注点：Middleware / Checkpoint / HITL          │ │
+│   └─────────────────────────────────────────────────────┘ │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 快速索引
+
+| 术语 | 章节 | 类别 |
+|------|------|------|
+| Agent | Ch5, Ch7 | 核心概念 |
+| Checkpoint | Ch13 | 状态管理 |
+| Context Engineering | Ch10 | 工程技术 |
+| Edge | Ch5 | 工作流 |
+| Human-in-the-Loop | Ch13 | 交互模式 |
+| MCP | Ch11 | 协议标准 |
+| Memory | Ch9 | 核心概念 |
+| Middleware | Ch5, Ch13 | 横切逻辑 |
+| Node | Ch5 | 工作流 |
+| Sandbox | Ch8 | 执行环境 |
+| Skill | Ch2, Ch6, Ch12 | 核心概念 |
+| Sub-Agent | Ch2, Ch7 | 核心概念 |
+| Thread | Ch3, Ch5 | 会话管理 |
+| Tool | Ch2, Ch6 | 核心概念 |

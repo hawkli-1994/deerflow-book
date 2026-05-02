@@ -1,5 +1,11 @@
 # 第四章 · 项目结构与模块划分
 
+
+> **本章目标**：
+> 1. 熟悉 DeerFlow 的 monorepo 目录结构与各包职责
+> 2. 掌握前端、后端、共享包的代码组织方式
+> 3. 了解扩展配置（extensions_config.json）的加载机制
+
 > **本章目标**：
 > 1. 熟悉 DeerFlow 的目录结构与模块划分
 > 2. 理解 SDK 入口、配置体系与二次开发路径
@@ -241,3 +247,20 @@ DeerFlow 的项目结构清晰，分层明确：
 - **Sandbox** 负责安全执行
 
 这种分层使得二次开发可以聚焦在特定层，无需理解全部代码。
+
+
+## 本章小结
+
+本章介绍了 DeerFlow 的 monorepo 目录结构与开发规范：
+
+1. **五包结构**：frontend（Next.js）、backend（FastAPI）、harness（核心库）、schemas（数据模型）、skills-registry（技能仓库），边界清晰。
+2. **Harness 核心**：packages/harness/deerflow/ 包含 agents、skills、sandbox、memory、mcp 等模块，是二次开发的主战场。
+3. **扩展配置**：extensions_config.json 支持动态加载 Community Tools 和 MCP Servers，无需修改核心代码。
+4. **开发工具链**：ruff（格式化）、mypy（类型检查）、pytest（测试）、Renovate（依赖更新），确保代码质量。
+
+> **💡 最佳实践**：自定义 Skill 建议放在独立的 Git 仓库（如 deer-flow-skills/your-skill），通过 skills-registry 加载，避免污染主仓库。
+
+---
+
+**下一步**：阅读第五章，深入理解 Agent 核心的 LangGraph 编排逻辑。
+
