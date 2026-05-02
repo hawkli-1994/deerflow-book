@@ -18,13 +18,16 @@ DeerFlow = Sub-Agents + Memory + Sandbox + Extensible Skills + Message Gateway
 | 特性 | 说明 |
 |------|------|
 | **Sub-Agents** | 支持多子代理协同工作 |
+| **Progressive Skill Loading** | 技能按需加载，不一次性全部注入上下文 |
 | **Skills & Tools** | 可扩展的能力单元 |
 | **Sandbox** | Docker/K8s 隔离执行环境 |
 | **Memory** | 长期记忆系统 |
 | **Context Engineering** | 上下文管理与优化 |
 | **IM Channels** | Feishu / Slack / Telegram 渠道接入 |
+| **InfoQuest** | BytePlus 自研智能搜索与爬取工具集 |
+| **多模态输出** | Markdown / HTML / PPT / 播客 / 图片 / 视频 |
 | **LangSmith** | 完整链路追踪 |
-| **MCP Server** | Model Context Protocol 支持 |
+| **MCP Server** | Model Context Protocol 支持，含 OAuth 认证 |
 
 ## 1.3 技术栈
 
