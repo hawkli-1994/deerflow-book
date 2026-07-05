@@ -119,7 +119,7 @@ LangGraph 的 `graph.astream()` 支持多种 `stream_mode`，DeerFlow 将其映�
 | LangGraph stream_mode | SSE event 名 | 数据内容 | 用途 |
 |----------------------|-------------|---------|------|
 | `values` | `values` | 完整状态快照（messages, artifacts, title, todos） | 状态同步 |
-| `messages` | `messages` / `messages-tuple` | 单条消息的增量 delta（按 message.id 拼接） | 实时打字效果 |
+| `messages` / `messages-tuple`（请求端别名） | `messages` | 单条消息的增量 delta（按 message.id 拼接） | 实时打字效果 |
 | `updates` | `updates` | `{node_name: writes}` 节点级更新 | 中间件状态注入（标题、摘要） |
 | `custom` | `custom` | 自定义事件（task_running, task_completed 等） | 子任务进度追踪 |
 | `checkpoints` | `checkpoints` | Checkpoint 快照 | 调试 |
@@ -276,8 +276,7 @@ def _resolve_start_offset(self, stream, last_event_id):
 # config.yaml
 stream_bridge:
   type: redis
-  redis:
-    url: redis://localhost:6379
+  redis_url: redis://localhost:6379/0
 ```
 
 RedisStreamBridge 基于 Redis Streams 实现跨进程事件共享，保持相同的心跳和重连语义。`supports_cross_process = True` 标记使得 `joinStream` 可以在不同 Worker 上消费另一个 Worker 产生的事件流。
@@ -823,7 +822,7 @@ onCustomEvent(event) {
 }
 ```
 
-子任务卡片展开时，通过 `fetchSubtaskSteps` 从 `/runs/{runId}/events?task_id=...&after_seq=...` 分页加载完整历史步骤。
+子任务卡片展开时，通过 `fetchSubtaskSteps` 从 `/api/threads/{threadId}/runs/{runId}/events?event_types=subagent.step&task_id=...&after_seq=...` 分页加载完整历史步骤。
 
 ## 15.10 配置参考
 
@@ -839,8 +838,7 @@ stream_bridge:
 # 多进程 / 多 Worker 模式
 stream_bridge:
   type: redis
-  redis:
-    url: redis://localhost:6379
+  redis_url: redis://localhost:6379/0
 ```
 
 ### Nginx 流式参数
@@ -891,4 +889,4 @@ DeerFlow 的流式架构体现了以下工程思想：
 
 ---
 
-**下一步**：阅读附录 A，了解完整的配置参考。
+**下一步**：阅读第十四章，了解企业级应用案例。
