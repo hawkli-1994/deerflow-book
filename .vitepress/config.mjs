@@ -51,7 +51,8 @@ export default defineConfig({
           { text: '第十一章 · MCP Server 集成', link: '/chapters/11-mcp-server' },
           { text: '第十二章 · 自定义 Skill 开发', link: '/chapters/12-custom-skill' },
           { text: '第十三章 · Human-in-the-Loop', link: '/chapters/13-human-in-the-loop' },
-          { text: '第十四章 · 企业级应用案例', link: '/chapters/14-enterprise-cases' }
+          { text: '第十四章 · 企业级应用案例', link: '/chapters/14-enterprise-cases' },
+          { text: '第十五章 · 流式架构', link: '/chapters/15-streaming-architecture' }
         ]
       },
       {
