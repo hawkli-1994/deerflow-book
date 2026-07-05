@@ -42,7 +42,8 @@ export default defineConfig({
           { text: '第七章 · Sub-Agent 体系', link: '/chapters/07-sub-agents' },
           { text: '第八章 · Sandbox 环境', link: '/chapters/08-sandbox' },
           { text: '第九章 · Memory 系统', link: '/chapters/09-memory' },
-          { text: '第十章 · Context Engineering', link: '/chapters/10-context-engineering' }
+          { text: '第十章 · Context Engineering', link: '/chapters/10-context-engineering' },
+          { text: '第十五章 · 流式架构', link: '/chapters/15-streaming-architecture' }
         ]
       },
       {
