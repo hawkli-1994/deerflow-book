@@ -261,7 +261,7 @@ def _filter_tools(
         filtered = [t for t in filtered if t.name not in disallowed_set]
     
     return filtered
-```python
+```
 
 ### 7.3.2 同步/异步执行方法
 
@@ -359,7 +359,7 @@ async def _aexecute(
         result.completed_at = datetime.now()
 
     return result
-```python
+```
 
 ### 7.3.3 实时 AI 消息捕获 (astream)
 
@@ -509,7 +509,7 @@ def execute_async(self, task: str, task_id: str | None = None) -> str:
     
     _scheduler_pool.submit(run_task)
     return task_id
-```python
+```
 
 ### 7.4.3 任务状态查询与管理
 
@@ -562,7 +562,7 @@ class AgentState(TypedDict):
     
     sandbox: dict                        # 沙箱环境
     artifacts: list[str]                 # 生成的文件
-```python
+```
 
 ### 7.5.2 任务分发
 
@@ -659,7 +659,7 @@ workflow.add_conditional_edges(
         END: END
     }
 )
-```python
+```
 
 ### 7.6.3 节点实现
 
@@ -715,7 +715,7 @@ AGENT_TYPES = {
     "compliance_checker": ComplianceCheckerAgent,   # 合规检查
     "human_approver": HumanApproverAgent,          # 人工审批
 }
-```python
+```
 
 ### 7.7.2 项目级 Agent Team
 
@@ -811,7 +811,7 @@ class AgentMemory:
             if fact.get("confidence", 0) >= 0.7
             and fact.get("category") in {"preference", "behavior", "correction", "context"}
         ]
-```python
+```
 
 ### 7.8.2 团队记忆共享
 
@@ -869,7 +869,7 @@ async def build_subagent_context(
         # 工具列表
         "available_tools": task.required_tools,
     }
-```python
+```
 
 ### 7.9.2 上下文压缩
 
@@ -923,7 +923,7 @@ AGENT_REGISTRY.register("financial_analyst", FinancialAnalystAgent)
 
 # 3. 在工作流中使用
 workflow.add_node("financial_analyst", financial_analyst_node)
-```python
+```
 
 ### 7.10.2 自定义 Agent 协作逻辑
 

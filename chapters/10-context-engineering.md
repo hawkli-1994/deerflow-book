@@ -215,7 +215,7 @@ class RecursiveSummarizer:
         
         response = await self.llm.ainvoke([HumanMessage(prompt)])
         return response.content
-```python
+```
 
 ### 10.3.3 选择性保留
 
@@ -408,7 +408,7 @@ class HybridRetriever:
         )
         
         return [doc for doc_id, _ in sorted_docs]
-```python
+```
 
 ### 10.5.2 上下文窗口扩展
 
@@ -507,7 +507,7 @@ class ThreadState(AgentState):
     project_context: Optional[str]     # 项目级上下文
     compressed: bool = False           # 是否已压缩
     last_compress_at: Optional[int]    # 上次压缩时间戳
-```python
+```
 
 ## 10.7 二次开发：企业级上下文优化
 

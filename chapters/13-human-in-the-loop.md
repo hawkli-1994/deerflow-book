@@ -95,7 +95,7 @@ class ApprovalNode:
         self.decided_at: Optional[datetime] = None
         self.decided_by: Optional[User] = None
         self.decision_comment: Optional[str] = None
-```python
+```
 
 ## 13.3 审批中间件
 
@@ -190,7 +190,7 @@ async def handle_approval_wait(
     asyncio.create_task(
         check_approval_timeout(approval_id, approval.deadline)
     )
-```python
+```
 
 ## 13.4 审批流程 API
 
@@ -279,7 +279,7 @@ async def list_pending_approvals(
         "page": page,
         "page_size": page_size
     }
-```python
+```
 
 ## 13.5 审批通知集成
 
@@ -422,7 +422,7 @@ class ApprovalAuditLogger:
                 raise AuditException(f"日志 {log} 已被篡改")
         
         return logs
-```python
+```
 
 ### 13.6.2 合规报告生成
 
@@ -510,7 +510,7 @@ class CustomApprovalRule(ApprovalRule):
             return await user_service.get_managers()
         else:
             return await user_service.get_leads()
-```python
+```
 
 ### 13.7.2 集成到 DeerFlow 中间件链
 

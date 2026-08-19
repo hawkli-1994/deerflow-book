@@ -159,6 +159,7 @@ async def run_agent():
 │                        └──────────────────┘
 │                           (循环直到完成)
 └─────────────────────────────────────────────────────────────┘
+```
 
 ### 5.4.1 节点定义
 
@@ -257,7 +258,7 @@ class Middleware(ABC):
         返回：continue（继续）/ suspend（暂停）/ interrupt（中断）
         """
         raise NotImplementedError
-```python
+```
 
 ### 5.5.3 核心中间件详解
 
@@ -311,7 +312,7 @@ class SandboxMiddleware:
         }
         
         return MiddlewareResult(should_should_continue=True)
-```python
+```
 
 #### GuardrailMiddleware
 
@@ -372,7 +373,7 @@ class SummarizationMiddleware:
             )
         
         return MiddlewareResult(should_should_continue=True)
-```python
+```
 
 #### ClarificationMiddleware
 
@@ -424,7 +425,7 @@ class ToolErrorHandlingMiddleware(AgentMiddleware[AgentState]):
         except Exception as exc:
             # 构建错误 ToolMessage，让 Agent 可以继续执行
             return self._build_error_message(request, exc)
-```python
+```
 
 **功能：**
 - 捕获工具执行异常，避免整个 Agent 运行中断
@@ -478,7 +479,7 @@ class TokenUsageMiddleware(AgentMiddleware):
                 usage.get("output_tokens", "?"),
                 usage.get("total_tokens", "?"),
             )
-```python
+```
 
 **功能：**
 - 在 `after_model` 钩子中记录 Token 使用量
@@ -837,7 +838,7 @@ class CustomThreadState(ThreadState):
     user_role: Optional[str]         # 用户角色
     approval_queue: List[Approval]  # 待审批队列
     audit_context: AuditContext     # 审计上下文
-```python
+```
 
 ### 5.9.2 添加企业中间件
 
