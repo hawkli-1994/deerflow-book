@@ -105,7 +105,7 @@ class TenantContext:
         cls._local.tenant_id = None
         cls._local.user_id = None
         cls._local.role = None
-```python
+```
 
 ### 14.3.2 租户中间件
 
@@ -171,7 +171,7 @@ class TenantDataIsolation:
     def get_vector_namespace(tenant_id: str) -> str:
         """向量存储隔离：租户独立 namespace"""
         return f"tenant_{tenant_id}"
-```python
+```
 
 ## 14.4 RBAC 权限控制
 
@@ -281,7 +281,7 @@ def require_permission(*permissions: Permission):
 @require_permission(Permission.APPROVAL_GRANT)
 async def approve_action(project_id: str, action_type: str, approver: str):
     ...
-```python
+```
 
 ## 14.5 审计日志系统
 
@@ -404,7 +404,7 @@ class AuditLogStorage:
         
         computed_sig = self._sign_from_dict(event)
         return hmac.compare_digest(stored_sig, computed_sig)
-```python
+```
 
 ### 14.5.3 审计中间件
 
@@ -492,7 +492,7 @@ class KnowledgeFilters(BaseModel):
     date_from: Optional[datetime] = None
     date_to: Optional[datetime] = None
     project_id: Optional[str] = None
-```python
+```
 
 ### 14.6.2 知识检索中间件
 
@@ -646,7 +646,7 @@ class SensitiveDataApprovalRule(ApprovalRule):
             action.type == "data_access" and
             action.data_sensitivity == SensitivityLevel.CONFIDENTIAL
         )
-```python
+```
 
 ### 14.7.2 飞书审批卡片
 
@@ -814,7 +814,7 @@ class ProjectStateMachine:
         await self._on_transition(project, to_state)
         
         return project
-```python
+```
 
 ### 14.8.2 多 Agent 任务分解
 
@@ -996,7 +996,7 @@ class BrandController:
         output_path = video_path.replace(".mp4", "_branded.mp4")
         final.write_videofile(output_path)
         return output_path
-```python
+```
 
 ### 14.9.4 审批工作流
 
@@ -1116,7 +1116,7 @@ class EnterpriseIntegrationHub:
         """发送邮件摘要"""
         # 生成邮件，附带内容链接
         pass
-```python
+```
 
 ### 14.9.6 成本与配额管理
 
