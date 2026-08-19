@@ -961,7 +961,7 @@ POST /api/skills/install
   "source": "https://example.com/skills/market-researcher.skill",
   "name": "market-researcher"
 }
-```python
+```
 
 ### 6.10.2 Skill 安装流程
 
@@ -1196,7 +1196,7 @@ class DocumentReviewSkill:
                 ))
         
         return issues
-```python
+```
 
 ### 6.12.3 Skill 注册
 

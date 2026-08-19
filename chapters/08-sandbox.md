@@ -146,7 +146,7 @@ class SandboxProvider(ABC):
         获取现有沙箱
         """
         pass
-```python
+```
 
 ## 8.4 Sandbox Provider 模式
 
@@ -268,7 +268,7 @@ sandbox:
   docker:
     image: deer-flow-sandbox:latest
     mem_limit: "2g"
-```python
+```
 
 ```python
 # 动态类解析原理
@@ -355,7 +355,7 @@ class SandboxMiddleware(AgentMiddleware[SandboxMiddlewareState]):
         sandbox_id = provider.acquire(thread_id)
         logger.info(f"Acquiring sandbox {sandbox_id}")
         return sandbox_id
-```python
+```
 
 ### 8.5.2 lazy_init 机制
 
@@ -395,7 +395,7 @@ middleware = SandboxMiddleware(lazy_init=False)
 # 2. before_agent() 立即获取沙箱
 # 3. 工具执行使用已有沙箱
 # 4. after_agent() 可选择释放或保留沙箱
-```python
+```
 
 ### 8.5.3 生命周期钩子
 
@@ -484,7 +484,7 @@ def after_agent(self, state: SandboxMiddlewareState, runtime: Runtime) -> dict |
 │   Agent 结束 ──→ after_agent() ──→ release() ──→ 释放沙箱         │
 │                                                                  │
 └─────────────────────────────────────────────────────────────────┘
-```text
+```
 
 关键点：
 1. **线程级别复用** — 同一线程内的多次工具调用共享同一个沙箱
@@ -554,7 +554,7 @@ def is_host_bash_allowed(config=None) -> bool:
     
     # 本地 Provider，需要显式开启
     return bool(getattr(sandbox_cfg, "allow_host_bash", False))
-```python
+```
 
 ### 8.6.3 敏感路径访问控制
 
@@ -635,7 +635,7 @@ sandbox:
 │                           返回 LOCAL_HOST_BASH_DISABLED_MESSAGE  │
 │                                                                  │
 └─────────────────────────────────────────────────────────────────┘
-```text
+```
 
 安全最佳实践：
 1. **生产环境** — 始终使用 Docker/K8s Provider，禁用 Local Provider
@@ -831,7 +831,7 @@ sandbox:
       cpu_limit: "2"
       memory_limit: "4Gi"
       timeout: 3600
-```text
+```
 
 ## 8.10 Sandbox Tools
 
@@ -899,7 +899,7 @@ async def ls_tool(path: str, max_depth: int = 2) -> str:
     
     # 格式化为树形结构
     return format_as_tree(entries)
-```python
+```
 
 ## 8.11 Sandbox 中间件集成
 
@@ -1078,7 +1078,7 @@ def _classify_command(command: str) -> str:
         if verdict == "warn":
             worst = "warn"
     return worst
-```python
+```
 
 **分类结果处理：**
 
@@ -1134,7 +1134,7 @@ def _write_audit(self, thread_id: str | None, command: str, verdict: str, *, tru
   "command": "rm -rf /",
   "verdict": "block"
 }
-```text
+```
 
 **输入验证与边界保护：**
 
@@ -1184,7 +1184,7 @@ def _append_warn_to_result(self, result: ToolMessage | Command, command: str) ->
         name=result.name,
         status=result.status,
     )
-```python
+```
 
 ### 8.12.5 中间件集成
 
@@ -1251,7 +1251,7 @@ sandbox:
     read_only: true
     binds:
       - "/path/to/workspace:/mnt/user-data:rw"
-```python
+```
 
 ### 8.13.2 执行超时
 
@@ -1292,7 +1292,7 @@ sandbox:
     
     # 立即初始化：Agent 调用前获取沙箱（适合确定需要沙箱的场景）
     # lazy_init: false
-```python
+```
 
 ```python
 # 代码中配置

@@ -375,7 +375,7 @@ class FinanceSkillExecutor:
             ) * 100
         
         return indicators
-```python
+```
 
 ### 12.4.2 工具封装
 
@@ -541,7 +541,7 @@ class SkillLoader:
     def list_all(self) -> List[Skill]:
         """列出所有 Skill"""
         return list(self.registry.values())
-```python
+```
 
 ## 12.6 Skill 打包
 
