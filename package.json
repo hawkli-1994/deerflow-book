@@ -29,6 +29,6 @@
     "vitepress": "^1.6.4"
   },
   "overrides": {
-    "vite": "^6.2.6"
+    "vite": "^8.0.0"
   }
 }
